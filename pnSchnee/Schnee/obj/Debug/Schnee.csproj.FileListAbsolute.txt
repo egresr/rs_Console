@@ -1,0 +1,6 @@
+C:\Users\rsdat\Documents\rsProjekts\rs_Console\pnSchnee\Schnee\bin\Debug\Schnee.exe.config
+C:\Users\rsdat\Documents\rsProjekts\rs_Console\pnSchnee\Schnee\bin\Debug\Schnee.exe
+C:\Users\rsdat\Documents\rsProjekts\rs_Console\pnSchnee\Schnee\bin\Debug\Schnee.pdb
+C:\Users\rsdat\Documents\rsProjekts\rs_Console\pnSchnee\Schnee\obj\Debug\Schnee.csprojResolveAssemblyReference.cache
+C:\Users\rsdat\Documents\rsProjekts\rs_Console\pnSchnee\Schnee\obj\Debug\Schnee.exe
+C:\Users\rsdat\Documents\rsProjekts\rs_Console\pnSchnee\Schnee\obj\Debug\Schnee.pdb

@@ -12,7 +12,9 @@ namespace PalettenSpedition
         {
             List<Artikel> listArtikels = test_listArtikelsGenerator.Erzeuge();
             ArtikelBestand.Ausgeben(listArtikels);
-            Sendung sendung = new Sendung(3, listArtikels[2], new Palette());
+            Console.ReadLine();
+            ArtikelProPalette sendung = new ArtikelProPalette(listArtikels);
+            List<ArtikelProPalette> artikelProPalette = sendung.PackeArtikelAufPalette();
 
 
 

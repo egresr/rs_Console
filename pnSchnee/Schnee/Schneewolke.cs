@@ -10,7 +10,7 @@ namespace Schnee
     {
         int schneeflockenAnzahl;
         char symbol;
-        List<Schneeflocke> schneeflocken;
+        public List<Schneeflocke> schneeflocken;
 
 
         int breite, breiteMin = 4, breiteMax = 50; //Schneewolke Breite
@@ -18,6 +18,9 @@ namespace Schnee
         int xPosition, xPositionMax, yPosition, yPositionMax; //Schneewolke Koordinaten
 
         Random random = new Random();
+
+        public int YPosition { get; }
+
 
 
         public Schneewolke(int schneeflockenAnzahl, char symbol)

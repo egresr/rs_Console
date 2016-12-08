@@ -24,5 +24,10 @@ namespace Schnee
             Console.SetCursorPosition(positionX, positionY);
             Console.Write(symbol);
         }
+
+        public void Fallen()
+        {
+            positionY++;
+        }
     }
 }

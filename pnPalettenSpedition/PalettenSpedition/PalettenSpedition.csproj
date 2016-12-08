@@ -44,8 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Artikel.cs" />
+    <Compile Include="ArtikelBestand.cs" />
     <Compile Include="Einheit.cs" />
-    <Compile Include="Inhalt.cs" />
+    <Compile Include="Sendung.cs" />
     <Compile Include="Palette.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

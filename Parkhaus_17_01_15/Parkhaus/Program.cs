@@ -10,8 +10,8 @@ namespace Parkhaus
     {
         static void Main(string[] args)
         {
-            Wand wandHorizontal = new Wand(3, 1, 150, Wand.Richtung.nachRechts);
-            Wand wandHorizontal1 = new Wand(3, 1, 30, Wand.Richtung.nachUnten);
+            Wand wandHorizontal = new Wand(3, 1, 150, Richtung.nachRechts);
+            Wand wandHorizontal1 = new Wand(3, 1, 30, Richtung.nachUnten);
             wandHorizontal.Zeichne();
             wandHorizontal1.Zeichne();
 

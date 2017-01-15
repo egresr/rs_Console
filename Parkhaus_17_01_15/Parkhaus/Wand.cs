@@ -8,8 +8,6 @@ namespace Parkhaus
 {
     class Wand
     {
-        public enum Richtung { nachLinks, nachRechts, nachOben, nachUnten }
-
         Position position;
         int laenge;
         Richtung richtung;

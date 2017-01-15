@@ -40,9 +40,13 @@ namespace Parkhaus
             ZeichneWandLinks();
             ZeichneWandRechts();
 
+            Einfahrt einfahrt = new Einfahrt(eckeLinksUnten.KoordinateX, eckeLinksUnten.KoordinateY);
+            einfahrt.Zeichne();
 
         }
 
+
+        //Alle Positionen von Ecken bestimmen
         private void BestimmePosition_EckeLinksOben()
         {
             int koordinateX = abstandVonLinks;
@@ -75,6 +79,8 @@ namespace Parkhaus
             eckeRechtsUnten = new Position(koordinateX, koordinateY);
         }
 
+
+        //Waende Zeichnen
         private void ZeichneWandOben()
         {
             int laenge = eckeRechtsOben.KoordinateX - eckeLinksOben.KoordinateX;

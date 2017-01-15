@@ -19,11 +19,6 @@ namespace Parkhaus
 
         public Mauerstein(int koordinateX, int koordinateY)
         {
-            SetPosition(koordinateX, koordinateY);
-        }
-
-        private void SetPosition(int koordinateX, int koordinateY)
-        {
             position = new Position(koordinateX, koordinateY);
         }
 

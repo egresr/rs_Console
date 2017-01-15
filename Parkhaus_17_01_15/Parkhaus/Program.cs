@@ -15,7 +15,8 @@ namespace Parkhaus
             //wandHorizontal.Zeichne();
             //wandHorizontal1.Zeichne();
 
-            ParkhausRaum parkhausRaum = new ParkhausRaum(2, 1, 1, 1);
+            ParkhausRaum parkhaus = new ParkhausRaum(2, 1, 1, 1);
+
 
             Console.ReadLine();
         }

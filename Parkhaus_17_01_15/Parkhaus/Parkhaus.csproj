@@ -43,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auto.cs" />
     <Compile Include="Einfahrt.cs" />
     <Compile Include="Mauerstein.cs" />
     <Compile Include="ParkhausRaum.cs" />
+    <Compile Include="Parkplatz.cs" />
     <Compile Include="Pflasterstein.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />

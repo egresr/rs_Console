@@ -6,41 +6,37 @@ using System.Threading.Tasks;
 
 namespace Parkhaus
 {
-    class Einfahrt
+    class Parkplatz
     {
         Position position;
+        int breite = 3;
         int laenge = 3;
-        int breite = 6;
 
         List<Pflasterstein> listPflastersteine;
 
         public int KoordinateX { get { return position.KoordinateX; } }
         public int KoordinateY { get { return position.KoordinateY; } }
-        public int Laenge { get { return laenge; } }
-        public int Breite { get { return breite; } }
 
-        public Einfahrt(int koordinateX, int koordinateY) //Koordinate von EckeLinksUnten
+        public Parkplatz(Position position)
+        {
+            position = new Position(position.KoordinateX, position.KoordinateY);
+
+        }
+        public Parkplatz(int koordinateX, int koordinateY)
         {
             position = new Position(koordinateX, koordinateY);
-
-            ErzeugeListPflastersteine();
+            Erzeuge();
+            Zeichne();
         }
 
-        public Einfahrt()
-        {  }
-
-        private void ErzeugeListPflastersteine()
+        private void Erzeuge()
         {
-            int nextKoordinateX = position.KoordinateX;
-            int nextKoordinateY = position.KoordinateY;
-
             listPflastersteine = new List<Pflasterstein>();
-
             for (int i = 0; i < laenge; i++)
             {
                 for (int j = 0; j < breite; j++)
                 {
-                    listPflastersteine.Add(new Pflasterstein(nextKoordinateX + j, nextKoordinateY + i));
+                    listPflastersteine.Add(new Pflasterstein(position.KoordinateX + j, position.KoordinateY + i));
                 }
             }
         }

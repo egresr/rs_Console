@@ -16,7 +16,8 @@ namespace Parkhaus
             //wandHorizontal1.Zeichne();
 
             ParkhausRaum parkhaus = new ParkhausRaum(2, 1, 1, 1);
-
+            Auto auto = new Auto("NE-MY777", ConsoleColor.Red, parkhaus.Einfahrt);
+            auto.Parken(parkhaus.Parkplatz);
 
             Console.ReadLine();
         }

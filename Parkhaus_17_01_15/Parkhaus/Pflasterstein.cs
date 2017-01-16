@@ -5,10 +5,10 @@ namespace Parkhaus
     class Pflasterstein
     {
         Position position;
-        //char zeichen = '░';
-        char zeichen = '▓';
-        ConsoleColor farbe = ConsoleColor.Blue;
-
+        char zeichen = '░';
+        //char zeichen = '▓';
+        //ConsoleColor farbe = ConsoleColor.Blue;
+        ConsoleColor farbe = ConsoleColor.DarkYellow;
         public Pflasterstein(int koordinateX, int koordinateY)
         {
             position = new Position(koordinateX, koordinateY);

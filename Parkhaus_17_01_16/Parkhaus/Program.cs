@@ -10,6 +10,12 @@ namespace Parkhaus
     {
         static void Main(string[] args)
         {
+            Position position = new Position(9, 3);
+            Ziegel ziegel = new Ziegel(position, ConsoleColor.DarkGray);
+            ziegel.Zeichne();
+
+
+            Console.ReadLine();
         }
     }
 }

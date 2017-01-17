@@ -10,13 +10,14 @@ namespace Parkhaus
     {
         static void Main(string[] args)
         {
-            Position position = new Position(0, 0);
-
-            Wand wand = new Wand(50, Richtung.nachRechts, ConsoleColor.Red, position);
-            wand.Zeichne();
+            Parkhalle parkhalle = new Parkhalle(1, 1, 3, 5);
 
 
             Console.ReadLine();
         }
     }
 }
+
+////////
+//////// ToDo:
+////////

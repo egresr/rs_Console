@@ -9,7 +9,7 @@ namespace Parkhaus
     class Ziegel
     {
         Position position;
-        char zeichen = '▓';
+        char zeichen = '█';
         ConsoleColor farbe;
 
         public Position Position { get { return position; } }
@@ -19,7 +19,7 @@ namespace Parkhaus
 
         public Ziegel(Position position, ConsoleColor farbe)
         {
-            this.position = position;
+            this.position = new Position(position);
             this.farbe = farbe;
         }
 

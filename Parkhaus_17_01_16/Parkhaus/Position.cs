@@ -11,13 +11,21 @@ namespace Parkhaus
         int koordinateX;
         int koordinateY;
 
-        public int KoordinateX { get { return koordinateX; } set { } }
-        public int KoordinateY { get { return koordinateY; } set { } }
+        public int KoordinateX { get { return koordinateX; } set { koordinateX = value; } }
+        public int KoordinateY { get { return koordinateY; } set { koordinateY = value; } }
+
 
         public Position(int koordinateX, int koordinateY)
         {
             this.koordinateX = koordinateX;
             this.koordinateY = koordinateY;
+        }
+
+
+        public Position(Position position)
+        {
+            koordinateX = position.KoordinateX;
+            koordinateY = position.koordinateY;
         }
     }
 }

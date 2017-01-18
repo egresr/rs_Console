@@ -116,7 +116,8 @@ namespace Parkplatz
             mauerAussenUnten = new MauerAussen(positionEckeLinksUnten, Richtung.nachRechts, mauerLaengeHorisontal, ConsoleColor.Red, '▀');
             //mauerAussenUnten = new MauerAussen(positionEckeLinksUnten, Richtung.nachRechts, mauerLaengeHorisontal, ConsoleColor.Red, '█');
         }
-        
+       
+        //Trennmauer
         
        
         

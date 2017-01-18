@@ -10,6 +10,16 @@ namespace Parkplatz
     {
         static void Main(string[] args)
         {
+            Parkplatzgelaende parkplatzgelaende = new Parkplatzgelaende(1, 1, 3, 5);
+            InfoTafel infotafel = new InfoTafel(parkplatzgelaende);
+           
+
+
+
+
+
+            Console.ReadLine();
         }
     }
 }
+ 

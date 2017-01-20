@@ -43,9 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FahrWeg.cs" />
     <Compile Include="InfoTafel.cs" />
     <Compile Include="MauerAussen.cs" />
+    <Compile Include="MauerInnen.cs" />
+    <Compile Include="Parkplatz.cs" />
     <Compile Include="Parkplatzgelaende.cs" />
+    <Compile Include="ParkplatzReihe.cs" />
+    <Compile Include="PflasterStein.cs" />
     <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

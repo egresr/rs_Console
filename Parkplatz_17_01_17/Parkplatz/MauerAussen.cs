@@ -16,6 +16,8 @@ namespace Parkplatz
 
         List<Ziegel> listZiegelFuerMauer;
 
+        public Position Position { get { return position; } }
+
         public MauerAussen(Position position, Richtung richtung, int laenge, ConsoleColor ziegelFarbe, char ziegelZeichen)
         {
             this.position = new Position(position);

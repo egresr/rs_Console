@@ -8,6 +8,22 @@ namespace Parkplatz
 {
     class Parkplatzgelaende
     {
+        #region ----- Fahrweg
+        // Fahrweg
+        int fahrWegBreite = 4;
+        char fahrWegPflasterSteinZeichen = '░';
+        ConsoleColor fahrWegPflasterSteinFarbe = ConsoleColor.DarkGray;
+        #endregion --- Fahrweg
+
+        #region ----- Parkplatz
+        //Parkplatz
+        int parkPlatzBreite = 4;
+        int parkPlatzLaenge = 3;
+        char parkPlatzPflasterSteinZeichen = '▒';
+        ConsoleColor parkPlatzPflasterSteinFarbe = ConsoleColor.DarkRed;
+        #endregion --- Parkplatz
+
+        #region ----- Positionen
         Position startPosition;
 
         Position positionEckeLinksOben;
@@ -15,32 +31,52 @@ namespace Parkplatz
         Position positionEckeLinksUnten;
         Position positionEckeRechtsUnten;
 
+        #endregion --- Positionen
+
+        #region ----- MauerAussen
         MauerAussen mauerAussenLinks;
         MauerAussen mauerAussenRechts;
         MauerAussen mauerAussenOben;
         MauerAussen mauerAussenUnten;
+        #endregion --- MauerAussen
 
+        #region ----- Fahrweg
+        FahrWeg fahrWegLinks;
+        FahrWeg fahrWegRechts;
+        FahrWeg fahrWegOben;
+        FahrWeg fahrWegUnten;
+        #endregion --- Fahrweg
 
-
+        #region ----- Eigenschaften
         public Position PositionEckeLinksOben { get { return positionEckeLinksOben; } }
         public Position PositionEckeRechtsOben { get { return positionEckeRechtsOben; } }
         public Position PositionEckeLinksUnten { get { return positionEckeLinksUnten; } }
         public Position PositionEckeRechtsUnten { get { return positionEckeRechtsUnten; } }
+        #endregion --- Eigenschaften
 
-
-        public Parkplatzgelaende( int abstandLinks, int abstandRechts, int abstandOben, int  abstandUnten)
+        #region ----- Konstruktor
+        public Parkplatzgelaende(int abstandLinks, int abstandRechts, int abstandOben, int abstandUnten)
         {
             BestimmeStartPosition(abstandLinks, abstandRechts, abstandOben, abstandUnten);
             BestimmePositionenAlleEckenParkplatzgelaende(abstandLinks, abstandRechts, abstandOben, abstandUnten);
-            ErzeugeAlleAussenMauer();
-        }
 
+            ErzeugeAlleAussenMauer();
+            ZeichneAlleAussenMauer();
+
+            ErzeugeAlleFahrwege();
+            ZeichneAlleFahrwege();
+
+
+
+        }
+        #endregion --- Konstruktor
 
 
         private void BestimmeStartPosition(int abstandLinks, int abstandRechts, int abstandOben, int abstandUnten)
         {
             startPosition = new Position(abstandLinks, abstandOben);
         }
+        #region ----- Ecken von Parkgelaende
         //Ecken von Parkgelaende
         private void BestimmePositionenAlleEckenParkplatzgelaende(int abstandLinks, int abstandRechts, int abstandOben, int abstandUnten)
         {
@@ -48,7 +84,6 @@ namespace Parkplatz
             BestimmePositionEckeRechtsOben(abstandRechts, abstandOben);
             BestimmePositionEckeLinksUnten(abstandLinks, abstandUnten);
             BestimmePositionEckeRechtsUnten(abstandRechts, abstandUnten);
-
         }
         private void BestimmePositionEckeLinksOben(int abstandLinks, int abstandOben)
         {
@@ -74,6 +109,10 @@ namespace Parkplatz
             int koordinateY = Console.WindowHeight - abstandUnten - 1;
             positionEckeRechtsUnten = new Position(koordinateX, koordinateY);
         }
+
+        #endregion --- Ecken von Parkgelaende
+
+        #region ----- Aussenmauer
         //Aussenmauer
         private void ErzeugeAlleAussenMauer()
         {
@@ -84,7 +123,9 @@ namespace Parkplatz
             ErzeugeMauerAussenRechts(mauerLaengeVertikal);
             ErzeugeMauerAussenOben(mauerLaengeHorisontal);
             ErzeugeMauerAussenUnten(mauerLaengeHorisontal);
-
+        }
+        private void ZeichneAlleAussenMauer()
+        {
             mauerAussenLinks.Zeichne();
             mauerAussenRechts.Zeichne();
             mauerAussenOben.Zeichne();
@@ -116,10 +157,79 @@ namespace Parkplatz
             mauerAussenUnten = new MauerAussen(positionEckeLinksUnten, Richtung.nachRechts, mauerLaengeHorisontal, ConsoleColor.Red, '▀');
             //mauerAussenUnten = new MauerAussen(positionEckeLinksUnten, Richtung.nachRechts, mauerLaengeHorisontal, ConsoleColor.Red, '█');
         }
-       
+        #endregion --- Aussenmauer
+
+        #region ----- Trennmauer
         //Trennmauer
-        
-       
-        
+
+        #endregion ---Trennmauer
+
+        #region ----- Fahrweg
+        //Fahrweg
+        private void ErzeugeAlleFahrwege()
+        {
+            ErzeugeFahrwegLinks();
+            ErzeugeFahrwegRechts();
+            ErzeugeFahrwegOben();
+            ErzeugeFahrwegUnten();
+        }
+        private void ErzeugeFahrwegLinks()
+        {
+            Position startPositionFahrweg = new Position(positionEckeLinksOben);
+            startPositionFahrweg.KoordinateX += 2;
+            startPositionFahrweg.KoordinateY += parkPlatzLaenge + 2;
+
+            Position endPositionFahrweg = new Position(positionEckeLinksUnten);
+            endPositionFahrweg.KoordinateX += 2;
+            endPositionFahrweg.KoordinateY -= 0;
+
+            fahrWegLinks = new FahrWeg(startPositionFahrweg, endPositionFahrweg, fahrWegBreite, Richtung.nachUnten, fahrWegPflasterSteinZeichen, fahrWegPflasterSteinFarbe);
+        }
+        private void ErzeugeFahrwegRechts()
+        {
+            Position startPositionFahrweg = new Position(positionEckeRechtsOben);
+            startPositionFahrweg.KoordinateX -= fahrWegBreite + 1;
+            startPositionFahrweg.KoordinateY += parkPlatzLaenge + 2;
+
+            Position endPositionFahrweg = new Position(positionEckeRechtsUnten);
+            endPositionFahrweg.KoordinateX -= fahrWegBreite + 2;
+            endPositionFahrweg.KoordinateY -= 0;
+
+            fahrWegRechts = new FahrWeg(startPositionFahrweg, endPositionFahrweg, fahrWegBreite, Richtung.nachUnten, fahrWegPflasterSteinZeichen, fahrWegPflasterSteinFarbe);
+        }
+        private void ErzeugeFahrwegOben()
+        {
+            Position startPositionFahrweg = new Position(positionEckeLinksOben);
+            startPositionFahrweg.KoordinateX += fahrWegBreite + 1;
+            startPositionFahrweg.KoordinateY += parkPlatzLaenge + 2;
+
+            Position endPositionFahrweg = new Position(positionEckeRechtsOben);
+            endPositionFahrweg.KoordinateX -= fahrWegBreite + 1;
+            endPositionFahrweg.KoordinateY += parkPlatzLaenge + 1;
+
+            fahrWegOben = new FahrWeg(startPositionFahrweg, endPositionFahrweg, fahrWegBreite, Richtung.nachRechts, fahrWegPflasterSteinZeichen, fahrWegPflasterSteinFarbe);
+        }
+        private void ErzeugeFahrwegUnten()
+        {
+            Position startPositionFahrweg = new Position(positionEckeLinksUnten);
+            startPositionFahrweg.KoordinateX += fahrWegBreite + 1;
+            startPositionFahrweg.KoordinateY -= parkPlatzLaenge + fahrWegBreite + 1;
+
+            Position endPositionFahrweg = new Position(positionEckeRechtsUnten);
+            endPositionFahrweg.KoordinateX -= fahrWegBreite + 1;
+            endPositionFahrweg.KoordinateY -=  parkPlatzLaenge + fahrWegBreite + 1;
+
+            fahrWegUnten = new FahrWeg(startPositionFahrweg, endPositionFahrweg, fahrWegBreite, Richtung.nachRechts, fahrWegPflasterSteinZeichen, fahrWegPflasterSteinFarbe);
+        }
+        private void ZeichneAlleFahrwege()
+        {
+            fahrWegLinks.Zeichne();
+            fahrWegRechts.Zeichne();
+            fahrWegOben.Zeichne();
+            fahrWegUnten.Zeichne();
+        }
+
+        #endregion --- Fahrweg
+
     }
 }

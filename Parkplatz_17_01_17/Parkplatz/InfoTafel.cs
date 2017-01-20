@@ -8,7 +8,13 @@ namespace Parkplatz
 {
     class InfoTafel
     {
+        Parkplatzgelaende parkplatzgelaende;
         public InfoTafel(Parkplatzgelaende parkplatzgelaende)
+        {
+            this.parkplatzgelaende = parkplatzgelaende;
+        }
+
+        public static void Einblenden(Parkplatzgelaende parkplatzgelaende)
         {
             Console.SetCursorPosition(1, 1);
             Console.ForegroundColor = ConsoleColor.Gray;

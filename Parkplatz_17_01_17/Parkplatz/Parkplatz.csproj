@@ -46,7 +46,7 @@
     <Compile Include="FahrWeg.cs" />
     <Compile Include="InfoTafel.cs" />
     <Compile Include="MauerAussen.cs" />
-    <Compile Include="MauerInnen.cs" />
+    <Compile Include="TrennMauer.cs" />
     <Compile Include="Parkplatz.cs" />
     <Compile Include="Parkplatzgelaende.cs" />
     <Compile Include="ParkplatzReihe.cs" />

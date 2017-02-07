@@ -40,10 +40,16 @@ namespace Parkplatz
         MauerAussen mauerAussenUnten;
         #endregion --- MauerAussen
 
+        #region ----- Trennmauer
+        TrennMauer trennMauerOben;
+        TrennMauer trennMauerUnten;
+        #endregion --- Trennmauer
+
         #region ----- Fahrweg
         FahrWeg fahrWegLinks;
         FahrWeg fahrWegRechts;
         FahrWeg fahrWegOben;
+        FahrWeg fahrWegMitte;
         FahrWeg fahrWegUnten;
         #endregion --- Fahrweg
 
@@ -63,12 +69,17 @@ namespace Parkplatz
             ErzeugeAlleAussenMauer();
             ZeichneAlleAussenMauer();
 
+            EreugeAlleTrennMauer();
+            ZeichneAlleTrennMauer();
+
             ErzeugeAlleFahrwege();
             ZeichneAlleFahrwege();
 
 
 
         }
+
+
         #endregion --- Konstruktor
 
 
@@ -161,7 +172,17 @@ namespace Parkplatz
 
         #region ----- Trennmauer
         //Trennmauer
+        private void EreugeAlleTrennMauer()
+        {
+            Position startPosition = new Position(positionEckeLinksOben);
 
+
+            Position endPosition = new Position(PositionEckeRechtsOben);
+        }
+        private void ZeichneAlleTrennMauer()
+        {
+            
+        }
         #endregion ---Trennmauer
 
         #region ----- Fahrweg
@@ -170,6 +191,7 @@ namespace Parkplatz
         {
             ErzeugeFahrwegLinks();
             ErzeugeFahrwegRechts();
+            ErzeugeFahrwegMitte();
             ErzeugeFahrwegOben();
             ErzeugeFahrwegUnten();
         }
@@ -209,6 +231,19 @@ namespace Parkplatz
 
             fahrWegOben = new FahrWeg(startPositionFahrweg, endPositionFahrweg, fahrWegBreite, Richtung.nachRechts, fahrWegPflasterSteinZeichen, fahrWegPflasterSteinFarbe);
         }
+
+        private void ErzeugeFahrwegMitte()
+        {
+            Position startPositionFahrweg = new Position(positionEckeLinksOben);
+            startPositionFahrweg.KoordinateX += fahrWegBreite + 1;
+            startPositionFahrweg.KoordinateY += parkPlatzLaenge * 3 + fahrWegBreite + 3;
+
+            Position endPositionFahrweg = new Position(positionEckeRechtsOben);
+            endPositionFahrweg.KoordinateX -= fahrWegBreite + 1;
+            endPositionFahrweg.KoordinateY += parkPlatzLaenge * 3 + fahrWegBreite + 3;
+
+            fahrWegMitte = new FahrWeg(startPositionFahrweg, endPositionFahrweg, fahrWegBreite, Richtung.nachRechts, fahrWegPflasterSteinZeichen, fahrWegPflasterSteinFarbe);
+        }
         private void ErzeugeFahrwegUnten()
         {
             Position startPositionFahrweg = new Position(positionEckeLinksUnten);
@@ -226,6 +261,7 @@ namespace Parkplatz
             fahrWegLinks.Zeichne();
             fahrWegRechts.Zeichne();
             fahrWegOben.Zeichne();
+            fahrWegMitte.Zeichne();
             fahrWegUnten.Zeichne();
         }
 

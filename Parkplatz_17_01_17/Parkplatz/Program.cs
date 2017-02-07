@@ -10,7 +10,7 @@ namespace Parkplatz
     {
         static void Main(string[] args)
         {
-            Parkplatzgelaende parkplatzgelaende = new Parkplatzgelaende(1, 1, 3, 5);
+            Parkplatzgelaende parkplatzgelaende = new Parkplatzgelaende(1, 1, 3, 6);
             //Parkplatzgelaende parkplatzgelaende = new Parkplatzgelaende(0, 0, 0, 0);
             //InfoTafel infotafel = new InfoTafel(parkplatzgelaende);
             InfoTafel.Einblenden(parkplatzgelaende);
@@ -30,15 +30,21 @@ namespace Parkplatz
             Parkplatz parkplatz3 = new Parkplatz(p3, ConsoleColor.Gray, '▒');
             parkplatz3.Zeichne();
 
-            Position p4 = new Position(3, 5);
+            Position p4 = new Position(9, 16);
             Parkplatz parkplatz4 = new Parkplatz(p4, ConsoleColor.Gray, '▒');
             parkplatz4.Zeichne();
 
-            Position p5 = new Position(3, 5);
+            Position p5 = new Position(9, 23);
             Parkplatz parkplatz5 = new Parkplatz(p5, ConsoleColor.Gray, '▒');
             parkplatz5.Zeichne();
 
+            Position p6 = new Position(9, 27);
+            Parkplatz parkplatz6 = new Parkplatz(p6, ConsoleColor.Gray, '▒');
+            parkplatz6.Zeichne();
 
+            Position p7 = new Position(9, 34);
+            Parkplatz parkplatz7 = new Parkplatz(p7, ConsoleColor.Gray, '▒');
+            parkplatz7.Zeichne();
 
 
 

@@ -2,14 +2,16 @@
 
 namespace Kassenautomat.Zahlung
 {
-    static class BlockGeldEinnahme
+    class BlockGeldEinnahme
     {
+        public static Muenze Muenze { get; private set; }
+        
         static public void Einwurf(string value)
         {
             string tmpWert = "";
             int nennWert = 0;
 
-            Muenze muenze;
+            
             Banknote banknote;
 
             //Neue string, ohne Zeichen b und n, bilden
@@ -35,11 +37,11 @@ namespace Kassenautomat.Zahlung
 
                 if (value[0] == 'm')
                 {
-                    muenze = new Muenze(nennWert);
+                    Muenze = new Muenze(nennWert);
 
-                    if (BlockGeldPruefer.PreufeMuenze(muenze))
+                    if (BlockGeldPruefer.PreufeMuenze(Muenze))
                     {
-                        GeldEingangsFachMuenzen.listMuenzen.Add(muenze);
+                        GeldEingangsFachMuenzen.listMuenzen.Add(Muenze);
                     }
 
                     else

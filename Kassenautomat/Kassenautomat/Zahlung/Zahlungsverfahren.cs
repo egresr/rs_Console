@@ -51,6 +51,8 @@ namespace Kassenautomat.Zahlung
 
             Console.WriteLine("\n\tParkgebüren : \t\t{0:0.00} Euro ", parkGebuer);
             Console.WriteLine("\n\tEinbezahlt  : \t\t{0:0.00} Euro ", RestBetragRechner.gesammtSumme);
+            if (BlockGeldEinnahme.Muenze != null)
+                Console.WriteLine("\tEingeworfen : \t\t{0:0.00} Euro", (double)BlockGeldEinnahme.Muenze.NennWert/100);
             Console.WriteLine("\n\tzuzahlender Betrag  : \t{0:0.00} Euro ", RestBetragRechner.GetZuzahlenderBetrag(parkGebuer));
             Console.Write("\n\tGeldeinwurf : \t\t");
         }
